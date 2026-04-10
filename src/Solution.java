@@ -6,16 +6,32 @@ public class Solution {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        // TODO: Read a single line of text
+        // Read full line of text
+        String line = sc.nextLine();
         
-        // TODO: Split the text into individual words
+        // Convert to lowercase (optional but useful)
+        line = line.toLowerCase();
         
-        // TODO: Create a HashMap to store the frequency of each word
+        // Split words using space
+        String[] words = line.split("\\s+");
         
-        // TODO: Iterate through the words and update their frequencies in the map
+        // Create HashMap to store frequency
+        HashMap<String, Integer> freqMap = new HashMap<>();
         
-        // TODO: Iterate through the map and print the unique words and their counts
-        // Format: "word: count"
+        // Count frequency of each word
+        for (String word : words) {
+            if (freqMap.containsKey(word)) {
+                freqMap.put(word, freqMap.get(word) + 1);
+            } else {
+                freqMap.put(word, 1);
+            }
+        }
         
+        // Print result
+        for (Map.Entry<String, Integer> entry : freqMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        
+        sc.close();
     }
 }
