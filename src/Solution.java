@@ -1,34 +1,28 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         
-        // Read full line of text
-        String line = sc.nextLine();
+        Scanner sc = new Scanner(System.in);   // create scanner
         
-        // Convert to lowercase (optional but useful)
-        line = line.toLowerCase();
+        String line = sc.nextLine();           // read full line
+        line = line.toLowerCase();             // optional normalization
         
-        // Split words using space
-        String[] words = line.split("\\s+");
+        String[] words = line.split("\\s+");   // split words
         
-        // Create HashMap to store frequency
-        HashMap<String, Integer> freqMap = new HashMap<>();
+        HashMap<String, Integer> map = new HashMap<>();
         
-        // Count frequency of each word
+        // count frequency
         for (String word : words) {
-            if (freqMap.containsKey(word)) {
-                freqMap.put(word, freqMap.get(word) + 1);
+            if (map.containsKey(word)) {
+                map.put(word, map.get(word) + 1);
             } else {
-                freqMap.put(word, 1);
+                map.put(word, 1);
             }
         }
         
-        // Print result
-        for (Map.Entry<String, Integer> entry : freqMap.entrySet()) {
+        // print result
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
         
